@@ -21,23 +21,23 @@ public class MaxTest {
     }
 
     @Test
-    public void whenSecondAndThirdLessFirst(){
+    public void whenSecondAndThirdLessFirst() {
         Max max = new Max();
-        int temp = max.max(max.max(4,3),2);
+        int temp = max.max(max.max(4, 3), 2);
         assertThat(temp, is(4));
     }
 
     @Test
-    public void whenFirstAndThirdLessSecond(){
+    public void whenFirstAndThirdLessSecond() {
         Max max = new Max();
-        int temp = max.max(max.max(2,6),4);
+        int temp = max.max(max.max(2, 6), 4);
         assertThat(temp, is(6));
     }
 
     @Test
-    public void whenFirstAndSecondLessThird(){
+    public void whenFirstAndSecondLessThird() {
         Max max = new Max();
-        int temp = max.max(max.max(1,4),6);
+        int temp = max.max(max.max(1, 4), 6);
         assertThat(temp, is(6));
     }
 }
