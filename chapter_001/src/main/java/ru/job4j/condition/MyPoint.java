@@ -10,18 +10,31 @@ public class MyPoint {
     private int x;
     private int y;
 
+    /**
+     * Constructor.
+     */
+
     public MyPoint(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
-    public double distanceTo (MyPoint that) {
+    /**
+     * Method distanceTo.
+     * @return distance from the first point to the second point.
+     */
+
+    public double distanceTo(MyPoint that) {
         return Math.sqrt(Math.pow(this.x - that.x, 2) + Math.pow(this.y - that.y, 2));
     }
 
+    /**
+     * Method main.
+     */
+
     public static void main(String[] args) {
-        MyPoint a = new MyPoint(5,6);
-        MyPoint b = new MyPoint(12,25);
+        MyPoint a = new MyPoint(5, 6);
+        MyPoint b = new MyPoint(12, 25);
 
         System.out.println("x1 = " + a.x);
         System.out.println("y1 = " + a.y);
