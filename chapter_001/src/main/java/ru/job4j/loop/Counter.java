@@ -5,9 +5,10 @@ public class Counter {
 
     public int add(int start, int finish) {
         for (int i = start; i <= finish; i++) {
-            if((start % 2) == 0){
+            if ((start % 2) == 0) {
                 result += start;
-            } start++;
+            }
+            start++;
         }
         return result;
     }
