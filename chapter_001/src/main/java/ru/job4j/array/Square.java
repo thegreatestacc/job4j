@@ -5,7 +5,7 @@ public class Square {
         int[] rst = new int[bound];
         // заполнить массив через цикл элементами от 1 до bound возведенными в квадрат
         for (int i = 1; i <= bound; i++) {
-            rst [i - 1] = (int) Math.pow(i,2);
+            rst [i - 1] = (int) Math.pow(i, 2);
         }
         return rst;
     }
