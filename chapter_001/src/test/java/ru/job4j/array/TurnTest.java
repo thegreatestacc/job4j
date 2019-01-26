@@ -4,6 +4,12 @@ import org.junit.Test;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
+/**
+ * Test.
+ * @author solovev (sovliv@yandex.ru)
+ * @since 26.01.2019
+ */
+
 public class TurnTest {
 
     @Test
