@@ -19,9 +19,9 @@ public class FindLoopTest {
     public void whenWrongDecision() {
         FindLoop find = new FindLoop();
         int[] input = new int[] {4, 8, 2, 1, 0};
-        int value = 7;
+        int value = 3;
         int result = find.indexOf(input, value);
-        int expect = 2;
+        int expect = -1;
         assertThat(result, is(expect));
     }
 
