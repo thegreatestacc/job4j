@@ -8,6 +8,9 @@ public class MatrixCheck {
             if ((data[i][i] != data[i + 1][i + 1])) {
                 result = false;
                 break;
+            } else if (data[data.length - 1][data.length - 1] != data[data.length - 1 - i][data.length - 1 - i]) {
+                result = false;
+                break;
             }
         }
         return result;
