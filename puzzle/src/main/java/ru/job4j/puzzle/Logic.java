@@ -75,12 +75,14 @@ public class Logic {
             for (int in = 0; in < table.length; in++) {
                 if (table[in][out] == 1) {
                     hori++;
-                } else if (table[in][out] == 1) {
+                }
+                if (table[in][out] == 1) {
                     vert++;
                 }
             }
             if (hori == table.length || vert == table.length) {
                 result = true;
+                break;
             }
         }
         return result;
