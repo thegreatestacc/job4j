@@ -13,7 +13,7 @@ import static org.junit.Assert.assertThat;
  * @since 22.01.2019
  */
 
-public class MyPointTest {
+public class PointTest {
 
     /**
      * Test distanceTo method.
@@ -21,9 +21,9 @@ public class MyPointTest {
 
     @Test
     public void distanceFromTheFirstPointToTheSecond() {
-        MyPoint myPoint1 = new MyPoint(5, 6);
-        MyPoint myPoint2 = new MyPoint(12, 25);
-        double result = myPoint1.distanceTo(myPoint2);
+        Point point1 = new Point(5, 6);
+        Point point2 = new Point(12, 25);
+        double result = point1.distanceTo(point2);
         assertThat(result, closeTo(20, 0.3));
     }
 }

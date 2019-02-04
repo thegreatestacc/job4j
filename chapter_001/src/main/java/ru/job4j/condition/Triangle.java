@@ -1,11 +1,11 @@
 package ru.job4j.condition;
 
 public class Triangle {
-    private MyPoint a;
-    private MyPoint b;
-    private MyPoint c;
+    private Point a;
+    private Point b;
+    private Point c;
 
-    public Triangle(MyPoint a, MyPoint b, MyPoint c) {
+    public Triangle(Point a, Point b, Point c) {
         this.a = a;
         this.b = b;
         this.c = c;

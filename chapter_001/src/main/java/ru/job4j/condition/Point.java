@@ -6,7 +6,7 @@ package ru.job4j.condition;
  * @since 0.1
  */
 
-public class MyPoint {
+public class Point {
     private int x;
     private int y;
 
@@ -14,7 +14,7 @@ public class MyPoint {
      * Constructor.
      */
 
-    public MyPoint(int x, int y) {
+    public Point(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -24,7 +24,7 @@ public class MyPoint {
      * @return distance from the first point to the second point.
      */
 
-    public double distanceTo(MyPoint that) {
+    public double distanceTo(Point that) {
         return Math.sqrt(Math.pow(this.x - that.x, 2) + Math.pow(this.y - that.y, 2));
     }
 
@@ -33,8 +33,8 @@ public class MyPoint {
      */
 
     public static void main(String[] args) {
-        MyPoint a = new MyPoint(5, 6);
-        MyPoint b = new MyPoint(12, 25);
+        Point a = new Point(5, 6);
+        Point b = new Point(12, 25);
 
         System.out.println("x1 = " + a.x);
         System.out.println("y1 = " + a.y);
