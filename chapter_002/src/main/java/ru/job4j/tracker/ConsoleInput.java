@@ -1,6 +1,6 @@
 package ru.job4j.tracker;
 
-public class Input {
+public class ConsoleInput {
 
     public String ask(String question) {
         return question;
