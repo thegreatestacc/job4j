@@ -22,7 +22,7 @@ public class StartUI {
     /**
      * Получение данных от пользователя.
      */
-    private final ConsoleInput input;
+    private final Input input;
 
     /**
      * Хранилище заявок.
@@ -34,7 +34,7 @@ public class StartUI {
      * @param input ввод данных.
      * @param tracker хранилище заявок.
      */
-    public StartUI(ConsoleInput input, Tracker tracker) {
+    public StartUI(Input input, Tracker tracker) {
         this.input = input;
         this.tracker = tracker;
     }
@@ -107,7 +107,7 @@ public class StartUI {
         boolean trackEdit = this.tracker.replace(id, item);
         if (trackEdit) {
             System.out.println("Заявека изменена.");
-            System.out.println("Новые данные заявки: id - " + item.getId() + ", имя - " + item.getName() + ", описание - " + item.getDesk());
+            item.toString();
         } else {
             System.out.println("Заявка не отредактирована.");
         }
@@ -116,8 +116,7 @@ public class StartUI {
     private void deletedItem() {
         System.out.println("------------ Удаление заявки --------------");
         String id = this.input.ask("Введите ID заявки :");
-        boolean trackDeleted = this.tracker.deleted(id);
-        if (trackDeleted) {
+        if (this.tracker.deleted(id)) {
             System.out.println("Заявка удалена.");
         } else {
             System.out.println("Заявка не удалена.");
