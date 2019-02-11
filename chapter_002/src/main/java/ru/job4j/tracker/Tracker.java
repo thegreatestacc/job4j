@@ -21,7 +21,7 @@ public class Tracker {
     /**
      * Объект для генерации рандомного числа.
      */
-    private static final Random random = new Random();
+    private static final Random RN = new Random();
 
     /**
      * Метод реализаущий добавление заявки в хранилище
@@ -39,7 +39,7 @@ public class Tracker {
      * @return Уникальный ключ.
      */
     private String generateId() {
-        String id = String.valueOf(System.currentTimeMillis() + random.nextInt());
+        String id = String.valueOf(System.currentTimeMillis() + RN.nextInt());
         return id;
     }
 
@@ -51,7 +51,7 @@ public class Tracker {
     public boolean replace(String id, Item item) {
         boolean result = false;
         for (int i = 0; i < position; i++) {
-            if(this.items[i].getId().equals(id)){
+            if (this.items[i].getId().equals(id)) {
                 this.items[i] = item;
                 item.setId(id);
                 result = true;
@@ -68,7 +68,7 @@ public class Tracker {
     public boolean deleted(String id) {
         boolean result = false;
         for (int i = 0; i < position; i++) {
-            if(this.items[i].getId().equals(id)) {
+            if (this.items[i].getId().equals(id)) {
                 System.arraycopy(this.items, i, this.items, i, position);
                 result = true;
                 break;
@@ -93,7 +93,7 @@ public class Tracker {
         int length = 0;
         Item[] result = new Item[position];
         for (int i = 0; i < position; i++) {
-            if(this.items[i].getName().equals(key)) {
+            if (this.items[i].getName().equals(key)) {
                 result[length] = this.items[i];
                 length++;
             }
@@ -108,7 +108,7 @@ public class Tracker {
     public Item findById(String id) {
        Item result = null;
         for (int i = 0; i < position; i++) {
-            if(this.items[i].getId().equals(id)) {
+            if (this.items[i].getId().equals(id)) {
                 result = this.items[i];
             }
         }
