@@ -86,15 +86,16 @@ public class StartUI {
         String desk = this.input.ask("Введите описание заявки :");
         Item item = new Item(name, desk);
         this.tracker.add(item);
-        System.out.println("------------ Новая заявка с getId : " + item.getId() + "-----------");
+        System.out.println("------------ Новая заявка с getId : " + item.getId() + " -----------");
     }
 
     private void showAllItems() {
         System.out.println("------------ Все заявки --------------");
         Item[] items = this.tracker.findAll();
         for (Item item : items) {
-            System.out.println("ID заявки:" + item.getId() + " " + "Имя заявки:" + item.getName() + " Описание заявки: " + item.getDesk());
+            System.out.println("ID заявки: " + item.getId() + " " + "Имя заявки: " + item.getName() + " Описание заявки: " + item.getDesk());
         }
+        System.out.println("--------------------------------------");
     }
 
     private void editItem() {

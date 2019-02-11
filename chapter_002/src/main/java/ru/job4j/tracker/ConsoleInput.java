@@ -1,9 +1,12 @@
 package ru.job4j.tracker;
 
+import java.util.Scanner;
+
 public class ConsoleInput {
+    private Scanner scanner = new Scanner(System.in);
 
     public String ask(String question) {
-        return question;
+        System.out.println(question);
+        return scanner.nextLine();
     }
-    public void print(String data) { }
 }
