@@ -84,7 +84,7 @@ public class StartUI {
         System.out.println("------------ Добавление новой заявки --------------");
         String name = this.input.ask("Введите имя заявки :");
         String desk = this.input.ask("Введите описание заявки :");
-        Item item = new Item(name, desk);
+        Item item = new Item(name, desk, 123L);
         this.tracker.add(item);
         System.out.println("------------ Новая заявка с getId : " + item.getId() + " -----------");
     }
