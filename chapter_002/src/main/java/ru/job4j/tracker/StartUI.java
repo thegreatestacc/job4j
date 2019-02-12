@@ -84,7 +84,7 @@ public class StartUI {
         System.out.println("------------ Добавление новой заявки --------------");
         String name = this.input.ask("Введите имя заявки :");
         String desk = this.input.ask("Введите описание заявки :");
-        Item item = new Item(name, desk, 123L);
+        Item item = new Item(name, desk);
         this.tracker.add(item);
         System.out.println("------------ Новая заявка с getId : " + item.getId() + " -----------");
     }
@@ -93,15 +93,15 @@ public class StartUI {
         System.out.println("------------ Все заявки --------------");
         Item[] items = this.tracker.findAll();
         for (Item item : items) {
-            System.out.println("ID заявки: " + item.getId() + " " + "Имя заявки: " + item.getName() + " Описание заявки: " + item.getDesk());
+            item.toString();
         }
         System.out.println("--------------------------------------");
     }
 
     private void editItem() {
         System.out.println("------------ Редактирование заявки --------------");
-        String name = this.input.ask("Введите имя заявки :");
         String id = this.input.ask("Введите ID заявки :");
+        String name = this.input.ask("Введите имя заявки :");
         String desk = this.input.ask("Введите описание заявки :");
         Item item = new Item(name, desk);
         boolean trackEdit = this.tracker.replace(id, item);
@@ -128,7 +128,7 @@ public class StartUI {
         String id = this.input.ask("Введите ID заявки :");
         Item item = this.tracker.findById(id);
         System.out.println("Заявка найдена.");
-        System.out.println("ID заявки: " + item.getId() + ", имя заявки: " + item.getName() + ", описание заявки: " + item.getDesk());
+        item.toString();
     }
 
     private void findByIdName() {
@@ -136,7 +136,8 @@ public class StartUI {
         String name = this.input.ask("Введите имя заявки :");
         Item[] items = this.tracker.findByName(name);
         for (Item item : items) {
-            System.out.println("Заявка найдена. ID заявки: " + item.getId() + ", имя заявки: " + item.getName() + ", описание заявки: " + item.getDesk());
+            System.out.println("Заявка найдена.");
+            item.toString();
         }
     }
 
