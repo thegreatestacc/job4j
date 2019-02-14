@@ -1,4 +1,4 @@
-package ru.job4j.tracker;
+package java.ru.job4j.tracker;
 
 public class StartUI {
 
@@ -93,7 +93,7 @@ public class StartUI {
         System.out.println("------------ Все заявки --------------");
         Item[] items = this.tracker.findAll();
         for (Item item : items) {
-            item.toString();
+            System.out.println(item);
         }
         System.out.println("--------------------------------------");
     }
