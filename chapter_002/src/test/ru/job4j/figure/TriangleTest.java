@@ -15,8 +15,8 @@ public class TriangleTest {
                         new StringBuilder()
                                 .append("    +     ")
                                 .append("  +   +   ")
-                                .append(" +      + ")
-                                .append("++++++++++")
+                                .append(" +     + ")
+                                .append("+++++++++")
                                 .toString()
                 )
         );
