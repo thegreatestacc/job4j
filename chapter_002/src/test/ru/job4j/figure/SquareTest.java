@@ -1,4 +1,4 @@
-package java.ru.job4j.figure;
+package ru.job4j.figure;
 
 import org.junit.Test;
 
@@ -14,8 +14,8 @@ public class SquareTest {
                 is(
                         new StringBuilder()
                                 .append("++++")
-                                .append("+     +")
-                                .append("+     +")
+                                .append("+  +")
+                                .append("+  +")
                                 .append("++++")
                                 .toString()
                 )
