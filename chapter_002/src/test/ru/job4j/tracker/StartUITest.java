@@ -37,5 +37,4 @@ public class StartUITest {
         new StartUI(input, tracker).init();
         assertNull(tracker.findById(item.getId()));
     }
-
 }

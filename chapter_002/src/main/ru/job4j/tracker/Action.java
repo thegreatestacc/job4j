@@ -1,4 +1,4 @@
-package java.ru.job4j.tracker;
+package ru.job4j.tracker;
 
 public class Action {
     public void execute(Tracker tracker, ConsoleInput input) { }
