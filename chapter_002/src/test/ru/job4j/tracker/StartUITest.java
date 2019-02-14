@@ -1,6 +1,7 @@
 package ru.job4j.tracker;
 
 import org.junit.Test;
+import ru.job4j.figure.Triangle;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertNull;
@@ -20,7 +21,7 @@ public class StartUITest {
         // создаём Tracker
         Tracker tracker = new Tracker();
         //Напрямую добавляем заявку
-        Item item = tracker.add(new Item("test name", "desc",123L));
+        Item item = tracker.add(new Item("test name", "desc"));
         //создаём StubInput с последовательностью действий(производим замену заявки)
         Input input = new StubInput(new String[]{"2", item.getId(), "test replace", "заменили заявку", "6"});
         // создаём StartUI и вызываем метод init()
@@ -32,9 +33,36 @@ public class StartUITest {
     @Test
     public void deleteItemInTracker() {
         Tracker tracker = new Tracker();
-        Item item = tracker.add(new Item("test", "desc", 2018L));
+        Item item = tracker.add(new Item("test", "desc"));
         Input input = new StubInput(new String[]{"3", item.getId(), "6"});
         new StartUI(input, tracker).init();
         assertNull(tracker.findById(item.getId()));
+    }
+
+    @Test
+    public void whenFindByIdItem() {
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("test", "desc"));
+        Input input = new StubInput(new String[]{"4", item.getId(), "6"});
+        new StartUI(input, tracker).init();
+        assertThat(tracker.findById(item.getId()), is(item.getId()));
+    }
+
+    @Test
+    public void whenFindByNameItem() {
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("test", "desc"));
+        Input input = new StubInput(new String[]{"5", "test", "6"});
+        new StartUI(input, tracker).init();
+        assertThat(tracker.findByName(item.getName()), is("test"));
+    }
+
+    @Test
+    public void whenShowAllItems() {
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("test", "desc"));
+        Input input = new StubInput(new String[]{"1", "6"});
+        new StartUI(input, tracker).init();
+        assertThat(tracker.findAll(), is(item));
     }
 }
