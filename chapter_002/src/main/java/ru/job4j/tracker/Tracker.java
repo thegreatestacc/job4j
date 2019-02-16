@@ -43,6 +43,11 @@ public class Tracker {
         return id;
     }
 
+    /**
+     * Метод для выхода из программы.
+     * @param key
+     * @return
+     */
     public boolean exit(String key) {
         boolean result = false;
         if(key.equals("y")) {
