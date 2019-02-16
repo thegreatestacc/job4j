@@ -1,4 +1,4 @@
-package java.ru.job4j.classes;
+package ru.job4j.classes;
 
 public class Doctor extends Profession {
     private Diagnose diagnose = new Diagnose();
