@@ -21,7 +21,6 @@ public class UpdateItem implements UserAction{
         String name = input.ask("Please, provide item name: ");
         String desc = input.ask("Please, provide item description: ");
         Item item = new Item(name, desc);
-        tracker.replace(id, item);
         boolean trackEdit = tracker.replace(id, item);
         if(trackEdit) {
             System.out.println("Item edit");
