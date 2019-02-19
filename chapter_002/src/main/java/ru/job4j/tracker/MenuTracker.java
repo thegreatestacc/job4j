@@ -34,21 +34,21 @@ public class MenuTracker {
      *
      * @return длину массива
      */
-    public int getActionsLentgh() {
+    public int getActionsLength() {
         return this.actions.size();
     }
 
     /**
      * Метод заполняет массив.
      */
-    public void fillActions() {
-        this.actions.add(new AddItem(1, "Add program"));
-        this.actions.add(new ShowItems(2, "Show all items"));
-        this.actions.add(new UpdateItem(3, "Edit item"));
-        this.actions.add(new DeleteItem(4, "Delete item"));
-        this.actions.add(new FindItemById(5, "Find item by Id"));
-        this.actions.add(new FindItemsByName(6, "Find items by name"));
-        this.actions.add(new ExitProgram(7, "Exit Program"));
+    public void fillActions(StartUI ui) {
+        this.actions.add(new AddItem(0, "Add program"));
+        this.actions.add(new ShowItems(1, "Show all items"));
+        this.actions.add(new UpdateItem(2, "Edit item"));
+        this.actions.add(new DeleteItem(3, "Delete item"));
+        this.actions.add(new FindItemById(4, "Find item by Id"));
+        this.actions.add(new FindItemsByName(5, "Find items by name"));
+        this.actions.add(new ExitProgram(ui));
     }
 
     /**

@@ -29,6 +29,6 @@ public class AddItem implements UserAction {
 
     @Override
     public String info() {
-        return "Add new Item.";
+        return "Add new Item - 0.";
     }
 }

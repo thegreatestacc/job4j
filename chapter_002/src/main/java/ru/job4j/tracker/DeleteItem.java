@@ -29,6 +29,6 @@ public class DeleteItem implements UserAction {
 
     @Override
     public String info() {
-        return "Deleted item";
+        return "Deleted item - 3.";
     }
 }

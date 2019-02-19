@@ -32,6 +32,6 @@ public class UpdateItem implements UserAction{
 
     @Override
     public String info() {
-        return "Edit item.";
+        return "Edit item - 2.";
     }
 }

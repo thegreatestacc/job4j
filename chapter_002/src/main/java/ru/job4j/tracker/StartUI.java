@@ -1,6 +1,14 @@
 package ru.job4j.tracker;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class StartUI {
+
+    /**
+     * флаг для выхода.
+     */
+    private boolean end = true;
 
     /**
      * Получение данных от пользователя.
@@ -27,11 +35,22 @@ public class StartUI {
      */
     public void init() {
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
-        menu.fillActions();
+        List<Integer> range = new ArrayList<>();
+        menu.fillActions(this);
+        for (int i = 0; i < menu.getActionsLength(); i++) {
+            range.add(i);
+        }
         do {
             menu.show();
-            menu.select(Integer.valueOf(input.ask("select:")));
-        } while (!"y".equals(this.input.ask("Exit?(y): ")));
+            menu.select(input.ask("select:", range));
+        } while (this.end);
+    }
+
+    /**
+     * метод для реализации выхода.
+     */
+    public void stop() {
+        this.end = false;
     }
 
     /**
@@ -39,6 +58,6 @@ public class StartUI {
      * @param args
      */
     public static void main(String[] args) {
-        new StartUI(new ConsoleInput(), new Tracker()).init();
+        new StartUI(new ValidateInput(), new Tracker()).init();
     }
 }
