@@ -42,9 +42,4 @@ public class StubInput implements Input {
         //throw new UnsupportedOperationException("unsupported operation");
         return -1;
     }
-
-    public int ask(String question, int[] rage) {
-        //throw new UnsupportedOperationException("unsupported operation");
-        return -1;
-    }
 }
