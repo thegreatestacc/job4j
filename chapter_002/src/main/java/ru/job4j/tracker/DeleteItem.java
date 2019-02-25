@@ -1,34 +1,17 @@
 package ru.job4j.tracker;
 
-public class DeleteItem implements UserAction {
+public class DeleteItem extends BaseAction {
 
-    int key;
-    String command;
-
-    public DeleteItem(int key, String command) {
-        this.key = key;
-        this.command = command;
+    public DeleteItem(int key, String name) {
+        super(key, name);
     }
-
-    @Override
-    public int key() {
-        return 4;
-    }
-
+    
     @Override
     public void execute(Input input, Tracker tracker) {
         System.out.println("------------ Deleted item. ------------");
         String id = input.ask("Please, input ID item.");
-        boolean deletedItem = tracker.deleted(id);
-        if(deletedItem) {
+        if(tracker.deleted(id)){
             System.out.println("Item deleted.");
-        } else {
-            System.out.println("Item not deleted.");
-        }
-    }
-
-    @Override
-    public String info() {
-        return "Deleted item - 3.";
+        } else System.out.println("Item has not deleted.");
     }
 }
