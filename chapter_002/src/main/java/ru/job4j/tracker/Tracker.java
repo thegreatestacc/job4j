@@ -120,7 +120,7 @@ public class Tracker {
      * @param id
      */
     public Item findById(String id) {
-       Item result = null;
+        Item result = null;
         for (int i = 0; i < position; i++) {
             if (this.items[i].getId().equals(id)) {
                 result = this.items[i];
