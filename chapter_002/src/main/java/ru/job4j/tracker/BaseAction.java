@@ -4,10 +4,6 @@ public abstract class BaseAction implements UserAction {
     private final int key;
     private String name;
 
-    public BaseAction(int key) {
-        this.key = key;
-    }
-
     public BaseAction(final int key, final String name) {
         this.key = key;
         this.name = name;
