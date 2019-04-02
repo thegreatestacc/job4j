@@ -11,7 +11,14 @@ public class PriorityQueue {
      * @param task задача
      */
     public void put(Task task) {
-        //TODO добавить вставку в связанный список.
+       int j = tasks.size();
+        for (int i = 0; i < j; i++) {
+            if (task.getPriority() < tasks.get(i).getPriority()) {
+                j = i;
+                break;
+            }
+        }
+        this.tasks.add(j, task);
     }
 
     public Task take() {
