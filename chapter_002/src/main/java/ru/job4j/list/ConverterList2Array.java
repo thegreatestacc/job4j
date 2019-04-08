@@ -27,8 +27,6 @@ public class ConverterList2Array {
     }
     public List<Integer> convert(List<int[]> list) {
         List<Integer> arrList = new ArrayList<>();
-        list.add(new int[]{1, 2});
-        list.add(new int[]{3, 4, 5, 6});
         for (int[] array : list) {
             for (int element : array) {
                 arrList.add(element);
