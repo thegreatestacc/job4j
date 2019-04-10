@@ -14,13 +14,12 @@ public class MenuTracker {
      */
     private Tracker tracker;
     /**
-     * @param хранит ссылку на массив типа UserAction.
+     * @param хранит ссылку на список типа UserAction.
      */
     private List<UserAction> actions = new ArrayList<>();
 
     /**
      * Конструктор.
-     *
      * @param input   объект типа Input
      * @param tracker объект типа Tracker
      */
@@ -53,7 +52,6 @@ public class MenuTracker {
 
     /**
      * Метод в зависимости от указанного ключа, выполняет соотвествующие действие.
-     *
      * @param key ключ операции
      */
     public void select(int key) {
