@@ -12,8 +12,9 @@ public class FindItemById extends BaseAction {
     public void execute(Input input, Tracker tracker) {
         System.out.println("------------ Find by ID item. ------------");
         String id = input.ask("Please provide ID item.");
-        List<Item> item = tracker.findById(id);
-        //tracker.findById(item.getId());
+        Item item = tracker.findById(id);
+        //List<Item> item = tracker.findById(id);
+        tracker.findById(item.getId());
         System.out.println("Item find: " + item);
     }
 }
