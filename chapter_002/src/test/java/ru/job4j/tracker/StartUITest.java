@@ -2,6 +2,8 @@ package ru.job4j.tracker;
 
 import org.junit.Test;
 
+import java.util.Collections;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
@@ -27,7 +29,7 @@ public class StartUITest {
         // создаём StartUI и вызываем метод init()
         new StartUI(input, tracker).init();
         // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
-        assertThat(tracker.findById(item.getId()), is("test replace"));
+        assertThat(tracker.findById(item.getId()).getName(), is("test replace"));
     }
 
     @Test
@@ -63,6 +65,6 @@ public class StartUITest {
         Item item = tracker.add(new Item("test", "desc"));
         Input input = new StubInput(new String[]{"1", "6"});
         new StartUI(input, tracker).init();
-        assertThat(tracker.findAll(), is(item));
+        assertThat(tracker.findAll(), is(Collections.singletonList(item)));
     }
 }
