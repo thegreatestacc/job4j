@@ -112,14 +112,13 @@ public class Tracker {
      * Метод для поиска по ID заявки.
      * @param id
      */
-    public Item findById(String id) {
-        Item i = null;
+    public List<Item> findById(String id) {
+        List<Item> list = new ArrayList<>();
         for (Item item : items) {
             if(item.getId().equals(id)) {
-                i = item;
-                break;
+                list.add(item);
             }
         }
-        return i;
+        return list;
     }
 }
