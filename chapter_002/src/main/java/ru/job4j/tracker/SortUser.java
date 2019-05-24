@@ -9,15 +9,10 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class SortUser  {
-    Set<User> treeSet = new TreeSet<>();
+    Set<User> treeSe;
 
     public Set<User> sort(List<User> listUser) {
-        listUser.sort(new Comparator<User>() {
-            @Override
-            public int compare(User o1, User o2) {
-                return Integer.compare(o1.age, o2.age);
-            }
-        });
-        return treeSet;
+
+        return new TreeSet<>(listUser);
     }
 }
