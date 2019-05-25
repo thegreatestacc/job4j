@@ -60,7 +60,7 @@ public class TrackerEagerLoading {
      */
     public boolean exit(String key) {
         boolean result = false;
-        if(key.equals("y")) {
+        if (key.equals("y")) {
             result = true;
         }
         return result;
