@@ -11,7 +11,7 @@ public class TrackerStaticLazyLoad {
     private TrackerStaticLazyLoad() { }
 
     public static TrackerStaticLazyLoad getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             instance = new TrackerStaticLazyLoad();
         }
         return instance;
@@ -59,7 +59,7 @@ public class TrackerStaticLazyLoad {
      */
     public boolean exit(String key) {
         boolean result = false;
-        if(key.equals("y")) {
+        if (key.equals("y")) {
             result = true;
         }
         return result;

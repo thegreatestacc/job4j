@@ -1,6 +1,6 @@
 package ru.job4j.tracker;
 
-public class UpdateItem extends BaseAction{
+public class UpdateItem extends BaseAction {
 
     public UpdateItem(int key, String name) {
         super(key, name);
