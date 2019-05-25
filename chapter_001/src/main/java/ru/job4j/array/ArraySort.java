@@ -14,12 +14,10 @@ public class ArraySort {
                     arr3[i] = arr1[j];
                     j++;
                 }
-            }
-            else if (j < arr1.length) {
+            } else if (j < arr1.length) {
                 arr3[i] = arr1[j];
                 j++;
-            }
-            else {
+            } else {
                 arr3[i] = arr2[k];
                 k++;
             }
