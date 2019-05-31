@@ -1,21 +1,19 @@
-package ru.job4j.tracker.Singeltone;
+package ru.job4j.tracker.Singleton;
 
 import ru.job4j.tracker.Item;
 
 import java.util.Arrays;
 import java.util.Random;
 
-public class TrackerEagerLoading {
-    private static final TrackerEagerLoading INSTANCE = new TrackerEagerLoading();
+public class TrackerStaticFinalLazyLoad {
+    private TrackerStaticFinalLazyLoad() { }
 
-    private TrackerEagerLoading() { }
-
-    public static TrackerEagerLoading getInstance() {
-        return INSTANCE;
+    public static TrackerStaticFinalLazyLoad getInstance() {
+        return Holder.INSTANCE;
     }
 
-    public static void main(String[] args) {
-        TrackerEagerLoading tracker = TrackerEagerLoading.getInstance();
+    private static final class Holder {
+        private static final TrackerStaticFinalLazyLoad INSTANCE = new TrackerStaticFinalLazyLoad();
     }
 
     /**
