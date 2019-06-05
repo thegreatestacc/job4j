@@ -19,7 +19,7 @@ public class UserAction {
 
     //добавление пользователя
     public void addUser(User user) {
-        this.listBanksAccounts.put(user, new ArrayList<>());
+        this.listBanksAccounts.putIfAbsent(user, new ArrayList<>());
     }
 
     //удаление пользователя.
@@ -32,23 +32,41 @@ public class UserAction {
         for (Map.Entry<User, List<Account>> userAcc : listBanksAccounts.entrySet()) {
             String userPassport = userAcc.getKey().getPassport();
             if (userPassport == passport) {
-
+                userAcc.getValue().add(account);
             }
         }
     }
 
     //удалить один счёт пользователя.
     public void deleteAccountFromUser(String passport, Account account) {
+        for (Map.Entry<User, List<Account>> userAcc : listBanksAccounts.entrySet()) {
+            String userPassport = userAcc.getKey().getPassport();
+            if (userPassport == passport) {
+                userAcc.getValue().remove(account);
+            }
+        }
     }
 
     //получить список счетов для пользователя.
     public List<Account> getUserAccounts(String passport) {
-        return null;
+        List<Account> result = null;
+        for (Map.Entry<User, List<Account>> userAcc : listBanksAccounts.entrySet()) {
+            String userPassport = userAcc.getKey().getPassport();
+            if (userPassport == passport) {
+                result = userAcc.getValue();
+            }
+        }
+        return result;
     }
 
     //метод для перечисления денег с одного счёта на другой счёт:
     //если счёт не найден или не хватает денег на счёте srcAccount (с которого переводят) должен вернуть false.
     public boolean transferMoney(String srcPassport, String srcRequisite, String destPassport, String dstRequisite, double amount) {
+        for (Map.Entry<User, List<Account>> srcAccount : listBanksAccounts.entrySet()) {
+            if (listBanksAccounts.containsKey(srcAccount)) {
+
+            }
+        }
         return false;
     }
 }
