@@ -65,8 +65,25 @@ public class UserAction {
         for (Map.Entry<User, List<Account>> srcAccount : listBanksAccounts.entrySet()) {
             if (listBanksAccounts.containsKey(srcAccount)) {
 
+
             }
         }
         return false;
+    }
+
+    public Account fingAccountByPassportAndRequisites(String passport, String requisites) {
+        Account result = null;
+        for (Map.Entry<User, List<Account>> userAcc : listBanksAccounts.entrySet()) {
+            if (userAcc.getKey().passport == passport) {
+                int count = userAcc.getValue().size();
+                for (int i = 0; i < count; i++) {
+                    if (userAcc.getValue().get(count).requisites == requisites){
+                        result = userAcc.getValue().get(count);
+                        break;
+                    }
+                }
+            }
+        }
+        return result;
     }
 }
