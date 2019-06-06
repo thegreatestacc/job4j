@@ -77,7 +77,7 @@ public class UserAction {
             if (userAcc.getKey().passport == passport) {
                 int count = userAcc.getValue().size();
                 for (int i = 0; i < count; i++) {
-                    if (userAcc.getValue().get(count).requisites == requisites){
+                    if (userAcc.getValue().get(i).requisites == requisites){
                         result = userAcc.getValue().get(count);
                         break;
                     }
