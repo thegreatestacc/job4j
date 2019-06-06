@@ -71,7 +71,7 @@ public class UserAction {
         return false;
     }
 
-    public Account fingAccountByPassportAndRequisites(String passport, String requisites) {
+    public Account findAccountByPassportAndRequisites(String passport, String requisites) {
         Account result = null;
         for (Map.Entry<User, List<Account>> userAcc : listBanksAccounts.entrySet()) {
             if (userAcc.getKey().passport == passport) {
