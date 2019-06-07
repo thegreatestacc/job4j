@@ -31,7 +31,7 @@ public class UserAction {
     public void addAccountToUser(String passport, Account account) {
         for (Map.Entry<User, List<Account>> userAcc : listBanksAccounts.entrySet()) {
             String userPassport = userAcc.getKey().getPassport();
-            if (userPassport == passport) {
+            if (userPassport.equals(passport)) {
                 userAcc.getValue().add(account);
             }
         }
@@ -41,7 +41,7 @@ public class UserAction {
     public void deleteAccountFromUser(String passport, Account account) {
         for (Map.Entry<User, List<Account>> userAcc : listBanksAccounts.entrySet()) {
             String userPassport = userAcc.getKey().getPassport();
-            if (userPassport == passport) {
+            if (userPassport.equals(passport)) {
                 userAcc.getValue().remove(account);
             }
         }
@@ -52,35 +52,36 @@ public class UserAction {
         List<Account> result = null;
         for (Map.Entry<User, List<Account>> userAcc : listBanksAccounts.entrySet()) {
             String userPassport = userAcc.getKey().getPassport();
-            if (userPassport == passport) {
-                result = userAcc.getValue();
-            }
+            if (!userAcc.getValue().isEmpty()) {
+                if (userPassport.equals(passport)) {
+                    result = userAcc.getValue();
+                    break;
+                }
+            } else return new ArrayList<>();
         }
         return result;
     }
 
     //метод для перечисления денег с одного счёта на другой счёт:
     //если счёт не найден или не хватает денег на счёте srcAccount (с которого переводят) должен вернуть false.
+
     public boolean transferMoney(String srcPassport, String srcRequisite, String destPassport, String dstRequisite, double amount) {
         for (Map.Entry<User, List<Account>> srcAccount : listBanksAccounts.entrySet()) {
-            if (listBanksAccounts.containsKey(srcAccount)) {
 
-
-            }
         }
         return false;
     }
 
     public Account findAccountByPassportAndRequisites(String passport, String requisites) {
         Account result = null;
+        getUserAccounts(passport);
         for (Map.Entry<User, List<Account>> userAcc : listBanksAccounts.entrySet()) {
-            if (userAcc.getKey().passport == passport) {
-                int count = userAcc.getValue().size();
-                for (int i = 0; i < count; i++) {
-                    if (userAcc.getValue().get(i).requisites == requisites){
-                        result = userAcc.getValue().get(count);
-                        break;
-                    }
+            int userAccSize = userAcc.getValue().size();
+            for (int i = 0; i < userAccSize; i++) {
+                String userRequisites = userAcc.getValue().get(i).requisites;
+                if (userRequisites.equals(requisites)) {
+                    result = userAcc.getValue().get(i);
+                    break;
                 }
             }
         }
