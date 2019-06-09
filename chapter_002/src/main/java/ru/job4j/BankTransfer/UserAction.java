@@ -8,14 +8,13 @@ package ru.job4j.BankTransfer;
 
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class UserAction {
 
     //список всех пользователей с их аккаунтами
-    Map<User, List<Account>> listBanksAccounts = new HashMap<>();
+    Map<User, List<Account>> listBanksAccounts;
 
     //добавление пользователя
     public void addUser(User user) {
@@ -71,17 +70,19 @@ public class UserAction {
         }
         return false;
     }
-
+    
     public Account findAccountByPassportAndRequisites(String passport, String requisites) {
         Account result = null;
-        getUserAccounts(passport);
         for (Map.Entry<User, List<Account>> userAcc : listBanksAccounts.entrySet()) {
             int userAccSize = userAcc.getValue().size();
-            for (int i = 0; i < userAccSize; i++) {
-                String userRequisites = userAcc.getValue().get(i).requisites;
-                if (userRequisites.equals(requisites)) {
-                    result = userAcc.getValue().get(i);
-                    break;
+            if (userAcc.getKey().getPassport().equals(passport)) {
+                getUserAccounts(passport);
+                for (int i = 0; i < userAccSize; i++) {
+                    String userRequisites = userAcc.getValue().get(i).requisites;
+                    if (userRequisites.equals(requisites)) {
+                        result = userAcc.getValue().get(i);
+                        break;
+                    }
                 }
             }
         }
