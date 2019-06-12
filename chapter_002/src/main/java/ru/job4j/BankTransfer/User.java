@@ -2,8 +2,8 @@ package ru.job4j.BankTransfer;
 
 public class User {
 
-    String name;
-    String passport;
+    private String name;
+    private String passport;
 
     public String getName() {
         return name;

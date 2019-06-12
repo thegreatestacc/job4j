@@ -3,14 +3,14 @@ package ru.job4j.BankTransfer;
 
 public class Account {
 
-    int value;
-    String requisites;
+    private double value;
+    private String requisites;
 
-    public int getValue() {
+    public double getValue() {
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(double value) {
         this.value = value;
     }
 

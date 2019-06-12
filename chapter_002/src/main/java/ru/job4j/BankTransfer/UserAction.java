@@ -51,12 +51,10 @@ public class UserAction {
         List<Account> result = null;
         for (Map.Entry<User, List<Account>> userAcc : listBanksAccounts.entrySet()) {
             String userPassport = userAcc.getKey().getPassport();
-            if (!userAcc.getValue().isEmpty()) {
-                if (userPassport.equals(passport)) {
-                    result = userAcc.getValue();
-                    break;
-                }
-            } else return new ArrayList<>();
+            if (userPassport.equals(passport)) {
+                result = userAcc.getValue();
+                break;
+            }
         }
         return result;
     }
@@ -64,26 +62,25 @@ public class UserAction {
     //метод для перечисления денег с одного счёта на другой счёт:
     //если счёт не найден или не хватает денег на счёте srcAccount (с которого переводят) должен вернуть false.
 
-    public boolean transferMoney(String srcPassport, String srcRequisite, String destPassport, String dstRequisite, double amount) {
-        for (Map.Entry<User, List<Account>> srcAccount : listBanksAccounts.entrySet()) {
+    public boolean transferMoney(String srcPassport, String srcRequisite, String dstPassport, String dstRequisite, double amount) {
+        Account srcAccount = findAccountByPassportAndRequisites(srcPassport, srcRequisite);
+        Account dstAccount = findAccountByPassportAndRequisites(dstPassport, dstRequisite);
 
+        if (srcAccount != null && dstAccount != null) {
+            dstAccount.setValue(dstAccount.getValue() + amount);
+            srcAccount.setValue(srcAccount.getValue() - amount);
+            return true;
         }
         return false;
     }
     
     public Account findAccountByPassportAndRequisites(String passport, String requisites) {
         Account result = null;
-        for (Map.Entry<User, List<Account>> userAcc : listBanksAccounts.entrySet()) {
-            int userAccSize = userAcc.getValue().size();
-            if (userAcc.getKey().getPassport().equals(passport)) {
-                getUserAccounts(passport);
-                for (int i = 0; i < userAccSize; i++) {
-                    String userRequisites = userAcc.getValue().get(i).requisites;
-                    if (userRequisites.equals(requisites)) {
-                        result = userAcc.getValue().get(i);
-                        break;
-                    }
-                }
+        List<Account> userAcc = getUserAccounts(passport);
+        for (Account userAccount : userAcc) {
+            if (userAccount.getRequisites().equals(requisites)) {
+                result = userAccount;
+                break;
             }
         }
         return result;
