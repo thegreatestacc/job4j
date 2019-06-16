@@ -73,7 +73,7 @@ public class UserAction {
         }
         return false;
     }
-    
+
     public Account findAccountByPassportAndRequisites(String passport, String requisites) {
         Account result = null;
         List<Account> userAcc = getUserAccounts(passport);
