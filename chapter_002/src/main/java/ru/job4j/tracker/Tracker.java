@@ -1,9 +1,9 @@
 package ru.job4j.tracker;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 /**
  * @version $Id$
@@ -99,13 +99,9 @@ public class Tracker {
      * @param key
      */
     public List<Item> findByName(String key) {
-        List<Item> list = new ArrayList<>();
-        for (Item item : items) {
-            if (item.getName().equals(key)) {
-                list.add(item);
-            }
-        }
-        return list;
+        return items.stream()
+                .filter(x -> x.getName().equals(key))
+                .collect(Collectors.toList());
     }
 
     /**
