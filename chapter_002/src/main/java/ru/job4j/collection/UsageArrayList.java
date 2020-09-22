@@ -10,8 +10,7 @@ public class UsageArrayList {
         list.add("Ivan");
         list.add("Stepan");
 
-        for (String str : list) {
-            System.out.println(str);
-        }
+        list.stream()
+                .forEach(System.out::println);
     }
 }

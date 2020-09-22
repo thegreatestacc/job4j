@@ -10,8 +10,7 @@ public class UsageHashSet {
         set.add("BMW");
         set.add("Toyota");
 
-        for (String str : set) {
-            System.out.println(str);
-        }
+        set.stream()
+                .forEach(System.out::println);
     }
 }
