@@ -27,4 +27,25 @@ public class Tuple {
     public void setScore(double score) {
         this.score = score;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Tuple tuple = (Tuple) o;
+
+        if (Double.compare(tuple.score, score) != 0) return false;
+        return name != null ? name.equals(tuple.name) : tuple.name == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        result = name != null ? name.hashCode() : 0;
+        temp = Double.doubleToLongBits(score);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        return result;
+    }
 }
